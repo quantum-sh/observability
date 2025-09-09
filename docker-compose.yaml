@@ -1,0 +1,18 @@
+services:
+  lgtm:
+    image: grafana/otel-lgtm
+    ports:
+      - "4317:4317"
+      - "3000:3000"
+      - "4318:4318"
+    networks:
+      - observability-network
+    volumes:
+      - lgtm-volume:/data/
+
+networks:
+  observability-network:
+    driver: bridge
+
+volumes:
+  lgtm-volume:
